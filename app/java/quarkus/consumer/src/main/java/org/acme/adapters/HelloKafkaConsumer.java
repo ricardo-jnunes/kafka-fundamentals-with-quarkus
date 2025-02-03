@@ -9,6 +9,7 @@ public class HelloKafkaConsumer {
     @Incoming("hello")
     public void consume(String message) {
         // process your price.
+    	System.out.println(message);
     }
 
 }
