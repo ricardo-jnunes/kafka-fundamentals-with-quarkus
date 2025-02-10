@@ -43,6 +43,25 @@
             <artifactId>quarkus-messaging-kafka</artifactId>
         </dependency>
         <dependency>
+		  <groupId>org.apache.avro</groupId>
+		  <artifactId>avro</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>io.quarkus</groupId>
+		    <artifactId>quarkus-confluent-registry-avro</artifactId>
+		</dependency>
+		<dependency>
+	        <groupId>io.confluent</groupId>
+	        <artifactId>kafka-avro-serializer</artifactId>
+	        <version>7.8.0</version>
+	        <exclusions>
+	            <exclusion>
+	                <groupId>jakarta.ws.rs</groupId>
+	                <artifactId>jakarta.ws.rs-api</artifactId>
+	            </exclusion>
+	        </exclusions>
+	    </dependency>
+        <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit5</artifactId>
             <scope>test</scope>
@@ -53,6 +72,17 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    
+    <repositories>
+	    <!-- io.confluent:kafka-avro-serializer is only available from this repository: -->
+	    <repository>
+	        <id>confluent</id>
+	        <url>https://packages.confluent.io/maven/</url>
+	        <snapshots>
+	            <enabled>false</enabled>
+	        </snapshots>
+	    </repository>
+	</repositories>
 
     <build>
         <plugins>
@@ -108,6 +138,23 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
+<!--            <plugin>-->
+<!--			  <groupId>org.apache.avro</groupId>-->
+<!--			  <artifactId>avro-maven-plugin</artifactId>-->
+<!--			  <version>1.12.0</version>-->
+<!--			  <configuration>-->
+<!--			    <sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>-->
+<!--			    <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>-->
+<!--			  </configuration>-->
+<!--			  <executions>-->
+<!--			    <execution>-->
+<!--			      <phase>generate-sources</phase>-->
+<!--			      <goals>-->
+<!--			        <goal>schema</goal>-->
+<!--			      </goals>-->
+<!--			    </execution>-->
+<!--			  </executions>-->
+<!--			</plugin>-->
         </plugins>
     </build>
 
