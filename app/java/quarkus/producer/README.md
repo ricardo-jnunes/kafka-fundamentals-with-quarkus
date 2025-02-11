@@ -67,11 +67,25 @@ Easily start your REST Web Services
 
 ## Kafka
 
+Connect into Kafka Container
+
+```console
+nerdctl exec -it images-kafka-1 /bin/sh
+```
+
+Inside of the container, run the following commands:
+
 ```console
 kafka-topics --bootstrap-server kafka:9092 \
   --create \
   --topic hello\
-  --partitions 6 \
+  --partitions 2 \
+  --replication-factor 1
+  
+kafka-topics --bootstrap-server kafka:9092 \
+  --create \
+  --topic userinfo\
+  --partitions 2 \
   --replication-factor 1
  ```
 

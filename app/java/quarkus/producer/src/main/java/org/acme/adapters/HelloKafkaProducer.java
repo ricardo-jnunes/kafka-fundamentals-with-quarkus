@@ -17,7 +17,7 @@ public class HelloKafkaProducer {
         // Build an infinite stream of random strings
         // It emits a hello string every second
     	System.out.println("Starting produce messages");
-        return Multi.createFrom().ticks().every(Duration.ofSeconds(3))
+        return Multi.createFrom().ticks().every(Duration.ofSeconds(5))
             .map(x -> "Hello " + random.nextInt());
     }
 }
