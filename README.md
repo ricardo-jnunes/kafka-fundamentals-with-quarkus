@@ -10,6 +10,9 @@
 	- A Consumer and a Producer application
 - Docker Compose
 
+- TODO
+   - Kafka Streams
+   - Handle errors
 ## Initing
 
 ### Configure your hosts
