@@ -13,6 +13,7 @@
 - TODO
    - Kafka Streams
    - Handle errors
+   - Unit Tests and TopologyTestDriver
 ## Initing
 
 ### Configure your hosts
