@@ -12,6 +12,7 @@
 
 - TODO
    - Kafka Streams
+   - Reinforce the use of Schema Registry
    - Handle errors
    - Unit Tests and TopologyTestDriver
 ## Initing
